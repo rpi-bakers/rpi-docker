@@ -50,13 +50,14 @@ Restart Docker
 ├── Ubuntu-24.04-Dockerfile
 ├── README.md
 ├── docker-build.sh
+├── docker-env.sh
 ├── docker-run.sh
-├── env.sh
+├── setup-rpi-build.sh
 ```
 
 ### Set variables
 
-Use `env.sh` to set variables for your build setup.
+Use `docker-env.sh` to set variables for your build setup.
 Make sure you have created a working directory,
 owned by current user, on a larger partition.
 

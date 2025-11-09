@@ -1,2 +1,5 @@
+rpi-*-build/
+rpi-build/
 docker-workdir/
 get-docker.sh
+.vscode/
