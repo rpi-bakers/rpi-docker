@@ -8,6 +8,20 @@ SSTATE_DIR="/srv/yocto/sstate-cache"
 DL_DIR="/srv/yocto/downloads"
 
 ###############################################################################
+# Select the raspberry PI version.
+# raspberrypi3
+# raspberrypi5
+MACHINE="raspberrypi5"
+
+###############################################################################
 # Docker
-DOCKER_IMAGE_TAG="rpi-yocto"
+DOCKER_IMAGE_TAG="${MACHINE}-yocto"
 DOCKER_WORKDIR="${PWD}/docker-workdir"
+
+###############################################################################
+echo "SSTATE_DIR: ${SSTATE_DIR}"
+echo "DL_DIR: ${DL_DIR}"
+echo "MACHINE: ${MACHINE}"
+echo "DOCKER_IMAGE_TAG: ${DOCKER_IMAGE_TAG}"
+echo "DOCKER_WORKDIR: ${DOCKER_WORKDIR}"
+###############################################################################

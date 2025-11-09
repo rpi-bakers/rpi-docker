@@ -45,16 +45,19 @@ Build Raspberry pi image with docker
 ├── Dockerfile-Ubuntu-24.04
 ├── README.md
 ├── docker-build.sh
+├── docker-env.sh
 ├── docker-run.sh
-├── env.sh
+├── setup-rpi-build.sh
 ```
 
 Set variables
 -------------
 
-Use `env.sh` to set variables for your build setup.
+Use `docker-env.sh` to set variables for your build setup.
 Make sure you have created a working directory,
 owned by current user, on a larger partition.
+
+`MACHINE` variable is also used to override the default Raspberry Pi machine in rpi-build/env.sh.
 
 Create a yocto-ready docker image
 ---------------------------------
@@ -81,5 +84,11 @@ When running, volumes are used to save the build artifacts on host.
   - `{SSTATE_DIR}` build cache directory.
   - `{DL_DIR}` download directory.
 
+Inside the container, run the setup script to prepare the build environment
+-----------------------------------------------
+
+```{.sh}
+  $ ./setup-rpi-build.sh
+```
 
 [docker]: https://docs.docker.com/engine/install/ubuntu/ "DockerInstall/Ubuntu"

@@ -14,7 +14,7 @@
 #
 set +e
 # source the common variables
-. env.sh
+. docker-env.sh
 
 echo "Docker workdir: ${DOCKER_WORKDIR}"
 

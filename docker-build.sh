@@ -6,17 +6,23 @@
 #
 
 # source the common variables
-. env.sh
+. docker-env.sh
 
 usage() {
-    echo -e "\e[3m\nUsage: $0 [path_to_Dockerfile]\e[0m\n"
+    echo -e ""
+if [ -z "${MACHINE}" ]
+    then
+    echo -e "Check the 'MACHINE' variable in 'env.sh' is set correctly."
+fi
+    echo -e "Usage: $0 [path_to_Dockerfile]\n"
 }
 
 # main
 
 mkdir -p "${DOCKER_WORKDIR}"
 
-if [ $# -ne 1 ]
+# If MACHINE is not set and no Dockerfile path is provided, show usage.
+if [ -z "${MACHINE}" ] || [ $# -ne 1 ]
     then
         usage
     else
