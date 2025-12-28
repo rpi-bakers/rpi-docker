@@ -17,6 +17,16 @@ RUN apt install -y gawk wget git-core diffstat unzip texinfo \
     libsdl1.2-dev xterm tar locales net-tools rsync sudo vim curl zstd \
     liblz4-tool libssl-dev bc lzop libgnutls28-dev efitools git-lfs
 
+# Install .NET SDK
+RUN wget https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+    && dpkg -i packages-microsoft-prod.deb \
+    && rm packages-microsoft-prod.deb
+RUN apt update \
+    && apt install -y dotnet-sdk-8.0
+
+# Add for custom recipe
+RUN apt install -y jq
+
 # Set up locales
 RUN locale-gen en_US.UTF-8 && \
     update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8

@@ -16,8 +16,6 @@ set +e
 # source the common variables
 . docker-env.sh
 
-echo "Docker workdir: ${DOCKER_WORKDIR}"
-
 # run the docker image
 docker run -it --rm \
     --volume "${HOME}":"${HOME}" \
@@ -25,4 +23,4 @@ docker run -it --rm \
     --volume "${SSTATE_DIR}":"${SSTATE_DIR}" \
     --volume "${DL_DIR}":"${DL_DIR}" \
     "${DOCKER_IMAGE_TAG}" \
-    "/bin/bash"
+    "/bin/bash" -c "cd ${DOCKER_WORKDIR}/rpi-build && exec /bin/bash"
