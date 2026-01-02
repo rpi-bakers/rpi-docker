@@ -71,6 +71,14 @@ for example the Dockerfile for Ubuntu version 22.04:
 ./docker-build.sh Ubuntu-24.04-Dockerfile
 ```
 
+### Setup Raspberry Pi build environment
+
+Run the setup script to create the Raspberry Pi build environment.
+
+```{.sh}
+./setup-rpi-build.sh
+```
+
 ### Run the yocto-ready docker container
 
 ```{.sh}
