@@ -10,10 +10,6 @@
 
 usage() {
     echo -e ""
-if [ -z "${MACHINE}" ]
-    then
-    echo -e "Check the 'MACHINE' variable in 'env.sh' is set correctly."
-fi
     echo -e "Usage: $0 [path_to_Dockerfile]\n"
 }
 
@@ -21,8 +17,8 @@ fi
 
 mkdir -p "${DOCKER_WORKDIR}"
 
-# If MACHINE is not set and no Dockerfile path is provided, show usage.
-if [ -z "${MACHINE}" ] || [ $# -ne 1 ]
+# If no Dockerfile path is provided, show usage.
+if [ $# -ne 1 ]
     then
         usage
     else

@@ -3,11 +3,7 @@
 # source the common variables
 . docker-env.sh
 
-git clone https://github.com/rpi-bakers/rpi-build.git "${DOCKER_WORKDIR}/rpi-build"
+git clone "${GIT_REPO_URL}" "${DOCKER_WORKDIR}/${REPO_NAME}"
 
-cd "${DOCKER_WORKDIR}/rpi-build" || exit
-
-# replace MACHINE="raspberrypiX" with the value from docker-env.sh
-sed -i "s|^MACHINE=\".*\"|MACHINE=\"${MACHINE}\"|g" env.sh
-
-source setup.sh
+./docker-build.sh "${DOCKER_FILE}"
+./docker-run.sh

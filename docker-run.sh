@@ -23,4 +23,4 @@ docker run -it --rm \
     --volume "${SSTATE_DIR}":"${SSTATE_DIR}" \
     --volume "${DL_DIR}":"${DL_DIR}" \
     "${DOCKER_IMAGE_TAG}" \
-    "/bin/bash" -c "cd ${DOCKER_WORKDIR}/rpi-build && exec /bin/bash"
+    "/bin/bash" -c "cd ${DOCKER_WORKDIR}/${REPO_NAME} && exec /bin/bash"
